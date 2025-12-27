@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talabat - All Restaurants</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3eb;
+        }
+        .talabat-orange {
+            background-color: #ff5a00;
+        }
+        .talabat-text-orange {
+            color: #ff5a00;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+    <!-- Header -->
+    <header class="bg-[#f7f3eb] py-4 px-6 md:px-12">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <div class="talabat-orange px-4 py-2 rounded-sm">
+                <span class="text-white font-bold text-2xl italic tracking-tighter">talabat</span>
+            </div>
+
+            <!-- Right Nav -->
+            <div class="flex items-center space-x-4">
+                <button class="bg-white px-4 py-1.5 rounded-full flex items-center space-x-2 border border-gray-200 shadow-sm">
+                    <span class="font-semibold text-sm">AR</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="Language Icon" />
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                        <path d="M2 12h20" />
+                    </svg>
+                </button>
+                
+                <div class="bg-white p-1.5 rounded-full border border-gray-200 shadow-sm">
+                    <img src="https://flagcdn.com/w40/ae.png" alt="UAE Flag" class="w-6 h-4 object-cover rounded-sm">
+                </div>
+
+                <button class="bg-white p-2 rounded-full border border-gray-200 shadow-sm">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-orange-500" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 md:px-12 pb-12">
+        
+        <!-- Title Bar -->
+        <div class="bg-[#ece8e0] p-4 rounded-sm mb-6">
+            <h1 class="text-xl font-semibold text-gray-800">All Restaurants</h1>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="flex justify-end mb-8">
+            <div class="relative w-full max-w-xs">
+                <input type="text" placeholder="Search Restaurant" class="w-full pl-4 pr-10 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-orange-500 text-sm">
+                <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Restaurant Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            
+            <!-- Card Template -->
+            <script>
+                const restaurants = [
+                    { name: "Unity Gourmet Restau...", cuisines: "Arabic, Grills, Egyptian", img: "https://picsum.photos/seed/unity/200" },
+                    { name: "Bait Almadfoon Mandi...", cuisines: "Grills, Mandi, Arabic", img: "https://picsum.photos/seed/mandi/200" },
+                    { name: "BOYS", cuisines: "American, Burgers, Fas...", img: "https://picsum.photos/seed/boys/200" },
+                    { name: "Arbab Town", cuisines: "Indian, Pasta, Desserts", img: "https://picsum.photos/seed/arbab/200" },
+                    { name: "Only Burgers", cuisines: "Burgers, Sandwiches, A...", img: "https://picsum.photos/seed/burger/200" },
+                    { name: "Arto", cuisines: "Breakfast, Cafe, Interna...", img: "https://picsum.photos/seed/arto/200" },
+                    { name: "3KICKS", cuisines: "Specialty Store", img: "https://picsum.photos/seed/kicks/200" },
+                    { name: "ASMAK ALHALQA SE...", cuisines: "Seafood, Egyptian, Past...", img: "https://picsum.photos/seed/asmak/200" },
+                    { name: "Laylak Beirut Restaura...", cuisines: "Arabic, Lebanese, Inter...", img: "https://picsum.photos/seed/laylak/200" },
+                    { name: "Najmat Al Warsan Res...", cuisines: "Pakistani", img: "https://picsum.photos/seed/warsan/200" }
+                ];
+
+                document.write(restaurants.map(res => `
+                    <div class="bg-white border border-gray-100 rounded-md overflow-hidden shadow-sm hover:shadow-md transition-shadow cursor-pointer flex flex-col h-full">
+                        <div class="p-6 flex justify-center items-center flex-grow">
+                            <div class="w-24 h-24 rounded-full overflow-hidden border border-gray-100">
+                                <img src="${res.img}" alt="${res.name}" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                        <div class="p-4 border-t border-gray-50 text-center">
+                            <h3 class="font-semibold text-sm text-gray-800 truncate mb-1">${res.name}</h3>
+                            <p class="text-xs text-gray-500 truncate">${res.cuisines}</p>
+                        </div>
+                    </div>
+                `).join(''));
+            </script>
+
+        </div>
+    </main>
+
+    <!-- Footer Placeholder -->
+    <footer class="mt-12 py-8 border-t border-gray-200 text-center text-gray-400 text-sm">
+        <p>&copy; 2023 Talabat. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
